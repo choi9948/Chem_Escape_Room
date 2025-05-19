@@ -6,7 +6,7 @@ public class PlayerMotor : MonoBehaviour
 {
     private CharacterController controller;
     private Vector3 playerVelocity;
-    private float speed = 5f;
+    public float speed = 5f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
