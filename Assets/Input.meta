@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: 1acda67e2279e1040aecc29e693dc9a2
+<<<<<<<< HEAD:Assets/Icons.meta
+guid: 6af751511b122b14382a70fd04640d74
+========
+guid: ea92ee8271971164a933df6c84f71cf1
+>>>>>>>> Player:Assets/Input.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
