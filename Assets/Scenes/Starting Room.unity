@@ -21840,7 +21840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d58d0163989b844fb284541d80535d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UseText: {fileID: 0}
+  UseText: {fileID: 406386248}
   Camera: {fileID: 2127746445}
   MaxUseDistance: 5
   UseLayers:
