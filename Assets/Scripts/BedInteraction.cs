@@ -1,7 +1,8 @@
 using TMPro;
+using System.Collections;
 using UnityEngine;
 
-public class PlayerActions : MonoBehaviour
+public class BedInteraction : MonoBehaviour
 {
     [SerializeField]
     private TextMeshPro UseText;
@@ -16,15 +17,15 @@ public class PlayerActions : MonoBehaviour
     {
         if (Physics.Raycast(Camera.position, Camera.forward, out RaycastHit hit, MaxUseDistance, UseLayers))
         {
-            if (hit.collider.TryGetComponent<Door>(out Door door))
+            if (hit.collider.TryGetComponent<Bed>(out Bed bed))
             {
-                if (door.IsOpen)
+                if (bed.IsLooked)
                 {
-                    door.Close();
+                    bed.Look();
                 }
                 else
                 {
-                    door.Open(transform.position);
+                    bed.DontLook(transform.position);
                 }
             }
         }
@@ -33,15 +34,15 @@ public class PlayerActions : MonoBehaviour
     private void Update()
     {
         if (Physics.Raycast(Camera.position, Camera.forward, out RaycastHit hit, MaxUseDistance, UseLayers)
-            && hit.collider.TryGetComponent<Door>(out Door door))
+            && hit.collider.TryGetComponent<Bed>(out Bed bed))
         {
-            if (door.IsOpen)
+            if (bed.IsLooked)
             {
-                UseText.SetText("Close \"E\"");
+                UseText.SetText("Already inspected.");
             }
             else
             {
-                UseText.SetText("Open \"E\"");
+                UseText.SetText("Inspect [E]");
             }
             UseText.gameObject.SetActive(true);
             UseText.transform.position = hit.point - (hit.point - Camera.position).normalized * 0.01f;
