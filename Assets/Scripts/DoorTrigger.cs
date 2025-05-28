@@ -1,16 +1,30 @@
+
 using UnityEngine;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class DoorTrigger : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField]
+    private Door Door;
+
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.TryGetComponent<CharacterController>(out CharacterController controller))
+        {
+            if (!Door.IsOpen)
+            {
+                Door.Open(other.transform.position);
+            }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit(Collider other)
     {
-        
+        if (other.TryGetComponent<CharacterController>(out CharacterController controller))
+        {
+            if (Door.IsOpen)
+            {
+                Door.Close();
+            }
+        }
     }
 }
