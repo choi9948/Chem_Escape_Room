@@ -62,11 +62,11 @@ public class Door : MonoBehaviour
 
         if (ForwardAmount >= ForwardDirection)
         {
-            endRotation = Quaternion.Euler(new Vector3(0, StartRotation.y + RotationAmount, 0));
+            endRotation = Quaternion.Euler(new Vector3(0, 0, StartRotation.z + RotationAmount));
         }
         else
         {
-            endRotation = Quaternion.Euler(new Vector3(0, StartRotation.y - RotationAmount, 0));
+            endRotation = Quaternion.Euler(new Vector3(0, 0, StartRotation.z + RotationAmount));
         }
 
         IsOpen = true;
