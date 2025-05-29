@@ -19,13 +19,13 @@ public class BedInteraction : MonoBehaviour
         {
             if (hit.collider.TryGetComponent<Bed>(out Bed bed))
             {
-                if (bed.IsLooked)
+                if (!bed.IsLooked)
                 {
-                    bed.Look();
+                    bed.Rise(transform.position);
                 }
                 else
                 {
-                    bed.DontLook(transform.position);
+                    return;
                 }
             }
         }
