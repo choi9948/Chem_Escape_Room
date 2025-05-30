@@ -15,9 +15,9 @@ namespace DefaultNamespace
 
         void Spawn()
         {
-            var spawnedObject = Instantiate(spawnPrefab, transform.position + Vector3.up, Quaternion.identity);
-            //spawnedObject.transform.position = transform.position + Vector3.up;
-            Rigidbody rb = spawnedObject.GetComponent<Rigidbody>();
+           
+            spawnPrefab.transform.position = transform.position + Vector3.up;
+            Rigidbody rb = spawnPrefab.GetComponent<Rigidbody>();
         }
 
         public void Interact()
