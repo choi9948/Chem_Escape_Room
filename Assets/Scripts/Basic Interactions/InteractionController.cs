@@ -1,54 +1,36 @@
-using TMPro;
-using UnityEngine.InputSystem;
 using UnityEngine;
 
 namespace DefaultNamespace
 {
-    public class InteractionController : MonoBehaviour
+    public class InteractionController : MonoBehaviour, IInteractable
     {
-        [SerializeField] Camera playerCamera;
-        [SerializeField] TextMeshProUGUI interactionText;
+        public string InteractMessage => objectInteractMessage;
+        private bool hasInteracted = false;
 
-        [SerializeField] float interactionDistance = 5f;
+        [SerializeField] GameObject spawnPrefab;
 
-        IInteractable currentTargetedInteractable;
+        [SerializeField] string objectInteractMessage;
 
-        public void Update()
+
+
+        void Spawn()
         {
-            UpdateCurrentInteractable();
-
-            UpdateInteractionText();
-
-            CheckForInteractionInput();
+           
+            spawnPrefab.transform.position = transform.position + Vector3.up;
+            Rigidbody rb = spawnPrefab.GetComponent<Rigidbody>();
         }
 
-        void UpdateCurrentInteractable()
+        public void Interact()
         {
-            var ray = playerCamera.ViewportPointToRay(new Vector2(0.5f, 0.5f));
-
-            Physics.Raycast(ray, out var hit, interactionDistance);
-
-            currentTargetedInteractable = hit.collider?.GetComponent<IInteractable>();
-        }
-
-        void UpdateInteractionText()
-        {
-            if (currentTargetedInteractable == null)
+            if (!hasInteracted)
             {
-                interactionText.text = string.Empty;
-                return;
+                Spawn();
+                hasInteracted = true;
             }
-
-            interactionText.text = currentTargetedInteractable.InteractMessage;
-        }
-
-        void CheckForInteractionInput()
+            else
             {
-                if (Keyboard.current.eKey.wasPressedThisFrame && currentTargetedInteractable != null)
-                {
-                    currentTargetedInteractable.Interact();
-                }
+                objectInteractMessage = "Already inspected.";
             }
+        }
     }
 }
-
