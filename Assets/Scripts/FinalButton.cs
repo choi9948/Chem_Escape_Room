@@ -27,10 +27,9 @@ namespace DefaultNamespace
 
         void Spawn()
         { 
-            spawnPrefab.transform.position = transform.position;
+            spawnPrefab.transform.position = transform.position + Vector3.up + new Vector3(0, 0, 5f);
             Rigidbody rb = spawnPrefab.GetComponent<Rigidbody>();
         }
-
         bool isTouching(GameObject other, GameObject target)
         {
             Collider col1 = other.GetComponent<Collider>();
@@ -44,6 +43,7 @@ namespace DefaultNamespace
 
         public void Interact()
         {
+            Spawn();
             if (!hasInteracted)
             {
                 if (isTouching(block1, slot1) && isTouching(block2, slot2) && isTouching(block3, slot3) && isTouching(block4, slot4))
@@ -54,7 +54,7 @@ namespace DefaultNamespace
                 }
                 else
                 {
-                   objectInteractMessage = "Unsuccessful."; 
+                    objectInteractMessage = "Unsuccessful.";
                 }
             }
             else
