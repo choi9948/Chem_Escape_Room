@@ -1,16 +1,53 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
-public class DoorKnobInteraction : MonoBehaviour
+namespace DefaultNamespace
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class DoorKnobInteraction : MonoBehaviour, IInteractable
     {
-        
-    }
+        public string InteractMessage => objectInteractMessage;
+        private bool hasInteracted = false;
 
-    // Update is called once per frame
-    void Update()
-    {
+        [SerializeField]
+        GameObject knob;
+
+        [SerializeField] string objectInteractMessage;
+
+        private void Transition()
+        {
+            SceneManager.LoadScene("NextScene");
+        }
+
+        void Start()
+        {
+           
+        }
+    
+
+
+        public void Interact()
+        {
+            if (!hasInteracted)
+            {
+
+                if (knob != null)//if holding object)
+                {
+                    Transition();
+                    objectInteractMessage = "Door Opened";
+                    hasInteracted = true;
+                }
+                else
+                {
+                    objectInteractMessage = "Missing door knob.";
+                }
+            }
+            else
+            {
+                objectInteractMessage = "Already Pressed.";
+            }
+        }
         
     }
 }
