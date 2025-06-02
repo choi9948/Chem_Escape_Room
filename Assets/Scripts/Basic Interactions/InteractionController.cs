@@ -1,36 +1,46 @@
+using TMPro;
+using UnityEngine.InputSystem;
 using UnityEngine;
 
 namespace DefaultNamespace
 {
-    public class InteractionController : MonoBehaviour, IInteractable
+    public class InteractionController : MonoBehaviour
     {
-        public string InteractMessage => objectInteractMessage;
-        private bool hasInteracted = false;
+        [SerializeField] Camera playerCamera;
+        [SerializeField] TextMeshProUGUI interactionText;
+        [SerializeField] float interactionDistance = 5f;
+        IInteractable currentTargetedInteractable;
 
-        [SerializeField] GameObject spawnPrefab;
-
-        [SerializeField] string objectInteractMessage;
-
-
-
-        void Spawn()
+        public void Update()
         {
-           
-            spawnPrefab.transform.position = transform.position + Vector3.up;
-            Rigidbody rb = spawnPrefab.GetComponent<Rigidbody>();
+            UpdateCurrentInteractable();
+            UpdateInteractionText();
+            CheckForInteractionInput();
         }
 
-        public void Interact()
+        void UpdateCurrentInteractable()
         {
-            if (!hasInteracted)
+            var ray = playerCamera.ViewportPointToRay(new Vector2(0.5f, 0.5f));
+            Physics.Raycast(ray, out var hit, interactionDistance);
+            currentTargetedInteractable = hit.collider?.GetComponent<IInteractable>();
+        }
+
+        void UpdateInteractionText()
+        {
+            if (currentTargetedInteractable == null)
             {
-                Spawn();
-                hasInteracted = true;
+                interactionText.text = string.Empty;
+                return;
             }
-            else
-            {
-                objectInteractMessage = "Already inspected.";
-            }
+            interactionText.text = currentTargetedInteractable.InteractMessage;
+        }
+
+        void CheckForInteractionInput()
+        {
+            if (Keyboard.current.eKey.wasPressedThisFrame && currentTargetedInteractable != null)
+                {
+                    currentTargetedInteractable.Interact();
+                }  
         }
     }
 }

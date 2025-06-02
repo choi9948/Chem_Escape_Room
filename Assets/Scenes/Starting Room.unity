@@ -24209,8 +24209,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 264a5220f658a0b499469b80e4b0a91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPrefab: {fileID: 0}
-  objectInteractMessage: 
+  playerCamera: {fileID: 2127746448}
+  interactionText: {fileID: 872269212}
+  interactionDistance: 5
 --- !u!114 &461083051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38165,7 +38166,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1742741959}
 --- !u!33 &921799701
@@ -61797,7 +61798,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1596611977}
 --- !u!33 &1489731106
