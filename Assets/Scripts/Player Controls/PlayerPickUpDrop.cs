@@ -28,7 +28,14 @@ public class PlayerPickUpDrop : MonoBehaviour
                 // Currently carrying something, drop
                 objectGrabbable.Drop();
                 objectGrabbable = null;
-            } 
+            }
         }
+    }
+
+
+
+    public ObjectGrabbable GetGrabbedObject()
+    {
+        return objectGrabbable;
     }
 }

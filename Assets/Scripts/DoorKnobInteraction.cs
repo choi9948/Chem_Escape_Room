@@ -9,20 +9,20 @@ namespace DefaultNamespace
     {
         public string InteractMessage => objectInteractMessage;
         private bool hasInteracted = false;
+        private PlayerPickUpDrop playerPickUpDrop;
 
-        [SerializeField]
-        GameObject knob;
+        [SerializeField] GameObject knob;
 
         [SerializeField] string objectInteractMessage;
 
         private void Transition()
         {
-            SceneManager.LoadScene("NextScene");
+            SceneManager.LoadScene(1);
         }
 
-        void Start()
+        private void Start()
         {
-           
+            playerPickUpDrop = GameObject.FindWithTag("Player").GetComponent<PlayerPickUpDrop>();
         }
     
 
@@ -32,7 +32,7 @@ namespace DefaultNamespace
             if (!hasInteracted)
             {
 
-                if (knob != null)//if holding object)
+                if (playerPickUpDrop != null && playerPickUpDrop.GetGrabbedObject() != null && playerPickUpDrop.GetGrabbedObject().gameObject==knob)//if holding object)
                 {
                     Transition();
                     objectInteractMessage = "Door Opened";
