@@ -20,12 +20,14 @@ public class ObjectGrabbable : MonoBehaviour
     {
         this.objectGrabPointTransform = objectGrabPointTransform;
         objectRigidbody.useGravity = false;
+        objectRigidbody.freezeRotation = true;
     }
 
     public void Drop()
     {
         this.objectGrabPointTransform = null;
         objectRigidbody.useGravity = true;
+        objectRigidbody.freezeRotation = false;
     }
 
     private void FixedUpdate()
