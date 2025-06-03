@@ -32,7 +32,7 @@ namespace DefaultNamespace
             if (!hasInteracted)
             {
 
-                if (playerPickUpDrop != null && playerPickUpDrop.GetGrabbedObject() != null && playerPickUpDrop.GetGrabbedObject().gameObject==knob)//if holding object)
+                if (playerPickUpDrop != null && playerPickUpDrop.GetGrabbedObject() != null && playerPickUpDrop.GetGrabbedObject().gameObject==knob)//if holding object
                 {
                     Transition();
                     objectInteractMessage = "Door Opened";

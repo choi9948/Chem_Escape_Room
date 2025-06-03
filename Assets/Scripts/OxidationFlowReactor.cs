@@ -6,6 +6,8 @@ namespace DefaultNamespace
     {
         public string InteractMessage => objectInteractMessage;
         private bool hasInteracted = false;
+        public bool HasBeenOxidized => hasInteracted;
+
         [SerializeField] string objectInteractMessage;
         [SerializeField] private Material orange;
         [SerializeField] private Beaker beaker;
