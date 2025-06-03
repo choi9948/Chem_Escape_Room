@@ -41,7 +41,7 @@ namespace DefaultNamespace
                     {
                         ChangeColour(blue);
                         propanol.SetActive(false);
-                        objectInteractMessage = "Propanol Successfully Added.";
+                        objectInteractMessage = "Propan-1-ol Successfully Added.";
                         hasInteracted = true;
 
                         if (beaker2Script != null)
@@ -52,7 +52,7 @@ namespace DefaultNamespace
                     }
                     else
                     {
-                        objectInteractMessage = "Missing Propanol";
+                        objectInteractMessage = "Missing Propan-1-ol";
                     }
                 }
                 else
