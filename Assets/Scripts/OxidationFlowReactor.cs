@@ -33,6 +33,7 @@ namespace DefaultNamespace
             else
             {
                 objectInteractMessage = "Oxidation already Complete.";
+                Destroy(this);
             }
         }
     }

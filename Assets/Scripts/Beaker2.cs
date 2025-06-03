@@ -152,6 +152,7 @@ namespace DefaultNamespace
             else
             {
                 objectInteractMessage = "Already Labeled.";
+                Destroy(this);
             }
         }
     }
