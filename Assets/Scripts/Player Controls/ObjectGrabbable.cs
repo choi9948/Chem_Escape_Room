@@ -5,13 +5,6 @@ public class ObjectGrabbable : MonoBehaviour
     private Rigidbody objectRigidbody;
     private Transform objectGrabPointTransform;
 
-/*
-    public ObjectGrabbable GetGrabbedObject()
-    {
-        return knob;
-    }
-*/
-
     private void Awake()
     {
         objectRigidbody = GetComponent<Rigidbody>();
