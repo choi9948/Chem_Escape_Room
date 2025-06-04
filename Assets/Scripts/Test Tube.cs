@@ -10,8 +10,6 @@ namespace DefaultNamespace
         [SerializeField] GameObject dropper;
         [SerializeField] GameObject dropperTip;
         [SerializeField] GameObject tube;
-
-
         private void Start()
         {
             playerPickUpDrop = GameObject.FindWithTag("Player").GetComponent<PlayerPickUpDrop>();

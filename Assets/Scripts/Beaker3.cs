@@ -12,6 +12,7 @@ namespace DefaultNamespace
         [SerializeField] GameObject dropperTip;
         [SerializeField] string objectInteractMessage;
 
+
         private void Start()
         {
             playerPickUpDrop = GameObject.FindWithTag("Player").GetComponent<PlayerPickUpDrop>();
@@ -45,6 +46,7 @@ namespace DefaultNamespace
             else
             {
                 objectInteractMessage = "Already Catalyzed.";
+                Destroy(this);
             }
         }
 
