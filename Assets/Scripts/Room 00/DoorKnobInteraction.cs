@@ -17,7 +17,7 @@ namespace DefaultNamespace
 
         private void Transition()
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
         private void Start()
@@ -25,8 +25,6 @@ namespace DefaultNamespace
             playerPickUpDrop = GameObject.FindWithTag("Player").GetComponent<PlayerPickUpDrop>();
         }
     
-
-
         public void Interact()
         {
             if (!hasInteracted)
