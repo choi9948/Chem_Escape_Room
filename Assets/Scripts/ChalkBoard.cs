@@ -39,7 +39,7 @@ namespace DefaultNamespace
 
         public void Interact()
         {
-            Spawn();
+            
 
             if (!hasInteracted)
             {
