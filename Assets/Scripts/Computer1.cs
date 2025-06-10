@@ -29,7 +29,7 @@ namespace DefaultNamespace
         [SerializeField] InputField conclusion3;
         [SerializeField] InputField signature;
 
-        public GameObject computerScreenUI;
+        [SerializeField]public GameObject computerScreenUI;
 
         private bool hasInteracted = false;
 
