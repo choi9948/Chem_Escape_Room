@@ -8,6 +8,7 @@ namespace DefaultNamespace
         public string InteractMessage => objectInteractMessage;
         [SerializeField] string objectInteractMessage;
         [SerializeField] GameObject graph;
+        [SerializeField] GameObject confirmationReceipt;
 
         [Header("Screens")]
         [SerializeField] GameObject screen1;
@@ -38,6 +39,12 @@ namespace DefaultNamespace
         [SerializeField] private InputManager playerMovementScript;
         [SerializeField] private InteractionController interactionControllerScript;
         [SerializeField] GameObject player;
+
+        void Spawn()
+        {
+            confirmationReceipt.transform.position = transform.position + Vector3.up;
+            Rigidbody rb = confirmationReceipt.GetComponent<Rigidbody>();
+        }
 
         private void DisableMovement()
         {
@@ -157,6 +164,7 @@ namespace DefaultNamespace
                 objectInteractMessage = "Completed.";
                 hasInteracted = true;
                 EnableMovement();
+                Spawn();
             }
             else
             {
