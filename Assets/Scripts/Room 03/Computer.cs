@@ -39,7 +39,7 @@ namespace DefaultNamespace
         {
             string userInput = input.text.Trim().ToLower();
 
-            if (userInput == "8.9")
+            if (userInput == "5.9")
             {
                 Cursor.visible = false;
                 computerScreenUI.SetActive(false);
