@@ -1,6 +1,6 @@
 # Trinitro Trouble
 3D Chemistry Escape Room
-<br>Unity Link: https://play.unity.com/en/games/18ee9ded-f099-422a-8f58-19072cb0953d/trinitro-trouble
+<br>**Unity Link:** https://play.unity.com/en/games/18ee9ded-f099-422a-8f58-19072cb0953d/trinitro-trouble
 
 ## Overview
 The digital escape room explores key concepts from all major chemistry units covered in SCH4U course provided through TDSB: 
