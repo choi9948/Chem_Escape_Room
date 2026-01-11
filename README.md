@@ -10,6 +10,10 @@ The digital escape room explores key concepts from all major chemistry units cov
 - Equilibrium
 Each room in the escape sequence is built with increasing difficulty, combining storytelling, interaction, and curriculum content.
 
+## Technology Stack
+- **Game Engine:** Unity  
+- **Programming Language:** C#  
+  
 ## Story Line
 ### Room 00: Introductory Puzzle
 **Objective:** Retrieve the door knob to exit
